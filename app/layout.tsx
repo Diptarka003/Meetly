@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <ClerkProvider appearance={{
         layout:{
-         logoImageUrl:'/icons/yoom-logo.svg',
+         logoImageUrl:'/icons/Home.svg',
          socialButtonsVariant:'iconButton'
         },
         variables:{
@@ -40,6 +40,7 @@ export default function RootLayout({
             colorBackground: '#1c1f2e',
             colorInputBackground: '#252a41',
             colorInputText: '#fff'
+            
         }
       }}>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0D1117]`}>
