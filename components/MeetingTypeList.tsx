@@ -50,7 +50,7 @@ const MeetingTypeList = () => {
 
 
  const router=useRouter()
- const meetingLink=${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}
+ const meetingLink=`${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`
  return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
        <HomeCard
@@ -117,13 +117,12 @@ const MeetingTypeList = () => {
               OnClose={()=>setMeetingState(undefined)}
               title="Meeting Created"
               className="text-center"
-              buttonText="Start Meeting"
               handleClick={()=>{
                 navigator.clipboard.writeText(meetingLink)
               }}
               image='/icons/checked.svg'
+              buttonText="Copy Meeting Link"
               buttonIcon='/icons/copy.svg'
-              buttonText='Copy Meeting Link'
             />
        }
 
