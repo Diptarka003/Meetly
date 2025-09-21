@@ -37,9 +37,9 @@ const CallList = ({type}:{type:'upcoming'|'ended'|'recordings'}) => {
         }        
     }
     useEffect(() => {
-    const fetchRecordings = async () => {
+      const fetchRecordings = async () => {
       try{
-        const callData = await Promise.all(callRecordings.map((meeting) => meeting.queryRecordings()));
+        const callData = await Promise.all(callRecordings.map((meeting:(Call | CallRecording)) => meeting.queryRecordings()));
 
         const recordings = callData
         .filter(call => call.recordings.length > 0)
@@ -51,7 +51,7 @@ const CallList = ({type}:{type:'upcoming'|'ended'|'recordings'}) => {
          toast("Try again Later")
       }
       if (type === 'recordings') fetchRecordings()
-    }, [type, callRecordings])
+    }}, [type, callRecordings])
 
     const calls=getCalls()
     const noCallMessage=getNoCallsMessage()
