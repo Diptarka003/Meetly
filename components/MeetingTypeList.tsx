@@ -8,6 +8,7 @@ import { useUser } from '@clerk/nextjs'
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk'
 import { Textarea } from './ui/textarea'
 import ReactDatePicker from 'react-datepicker'
+import { Input } from './ui/input'
 const MeetingTypeList = () => {
  const [meetingState,setMeetingState]=useState<'isScheduleMeeting'|'isJoiningMeeting'|'isInstantMeeting'|undefined>()
  const user=useUser()
@@ -135,6 +136,17 @@ const MeetingTypeList = () => {
        buttonText="Start Meeting"
        handleClick={createMeeting}
        />
+
+       <MeetingModal
+       isOpen={meetingState==='isJoiningMeeting'}
+       OnClose={()=>setMeetingState(undefined)}
+       title="Type the link"
+       className="text-center"
+       buttonText="Start Meeting"
+       handleClick={()=>{router.push(values.link)}}
+       />    
+       <Input placeholder='Meeting Link' className='border-none bg-[#1A1F25] focus-visible:ring-0 focus-visible:ring-offset-0'
+       onChange={(e)=>setvalues({...values,link:e.target.value})}/>   
     </section>
 
     
