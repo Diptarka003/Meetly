@@ -13,9 +13,10 @@ import { Layout, LayoutList, Users } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import EndCallButton from './EndCallButton';
 import Lcircle from './Lcircle';
-const router=useRouter()
+
 type callLayout='grid'|'speaker-left'| 'speaker-right'
 const MeetingRoom = () => {
+  const router=useRouter()
   const [layout,setlayout]=useState<callLayout>('speaker-left')
   const[showParticipants,setshowParticipants]=useState(false)
   const searchParams= useSearchParams()

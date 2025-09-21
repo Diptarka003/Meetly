@@ -14,6 +14,7 @@ const Navbar = () => {
        height={32}
        width={32}
        />
+       <p className='font-bold text-white'>Meetly</p>
       </Link>
       <div className='flex-between gap-5'>
           <SignedIn>

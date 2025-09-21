@@ -144,9 +144,11 @@ const MeetingTypeList = () => {
        className="text-center"
        buttonText="Start Meeting"
        handleClick={()=>{router.push(values.link)}}
-       />    
-       <Input placeholder='Meeting Link' className='border-none bg-[#1A1F25] focus-visible:ring-0 focus-visible:ring-offset-0'
-       onChange={(e)=>setvalues({...values,link:e.target.value})}/>   
+       >
+        <Input placeholder='Meeting Link' className='border-none bg-[#1A1F25] focus-visible:ring-0 focus-visible:ring-offset-0'
+       onChange={(e)=>setvalues({...values,link:e.target.value})}/> 
+      </MeetingModal>    
+  
     </section>
 
     
