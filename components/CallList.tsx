@@ -1,3 +1,4 @@
+'use client'
 //@ts-nocheck
 import { useGetCalls } from '@/hooks/useGetCalls'
 import { CallRecording } from '@stream-io/node-sdk'
