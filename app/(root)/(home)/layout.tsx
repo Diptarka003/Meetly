@@ -1,7 +1,14 @@
 import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
+import { Metadata } from 'next';
 import React, { Children, ReactNode } from 'react'
-
+export const metadata: Metadata = {
+  title: "Meetly",
+  description: "Video Calling App",
+  icons:{
+    icon:'/icons/logo.svg'
+  }
+};
 const HomeLayout = ({children}:{children:ReactNode}) => {
   return (
     <main className='flex'>
