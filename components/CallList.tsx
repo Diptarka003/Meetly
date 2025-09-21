@@ -5,7 +5,7 @@ import { useGetCalls } from '@/hooks/useGetCalls'
 import { CallRecording } from '@stream-io/node-sdk'
 import { Call } from '@stream-io/video-react-sdk'
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import MeetingCard from './MeetingCard'
 import Lcircle from './Lcircle'
 import { toast } from 'sonner'
@@ -41,19 +41,16 @@ const CallList = ({type}:{type:'upcoming'|'ended'|'recordings'}) => {
     useEffect(() => {
       const fetchRecordings = async () => {
       try{
-        const callData = await Promise.all(callRecordings.map((meeting:(Call | CallRecording)) => meeting.queryRecordings()));
-
-        const recordings = callData
-        .filter(call => call.recordings.length > 0)
-        .flatMap(call => call.recordings)
-        setRecordings(recordings)
+        const callData = await Promise.all(callrecordings.map((meeting) => meeting.queryRecordings()));
+        const recordings = callData.filter(call => call.recordings.length > 0).flatMap(call => call.recordings)
+        setrecordings(recordings);
       }
       catch(error)
       {
          toast("Try again Later")
       }
       if (type === 'recordings') fetchRecordings()
-    }}, [type, callRecordings])
+    }}, [type, callrecordings])
 
     const calls=getCalls()
     const noCallMessage=getNoCallsMessage()
