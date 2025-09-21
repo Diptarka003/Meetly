@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react'
-import Image from 'next/image'
 import HomeCard from './HomeCard'
 import { useRouter } from 'next/navigation'
 import MeetingModal from './MeetingModal'
@@ -92,7 +91,7 @@ const MeetingTypeList = () => {
                 <div className="flex flex-col gap-2.5">
                     <label className="text-base text-normal leading-[22px] text-sky-2">Add a description</label>
                     <Textarea className="border-none bg-gray-800 focus-visible:ring-0 focus-visible:ring-offset-0"
-                    onChange={(e:any) => {
+                    onChange={(e) => {
                       setvalues({...values, description: e.
                       target.value})
                     }}/>
